@@ -97,4 +97,5 @@ async function search() {
 
 fetchbutton.addEventListener('click', search);
 
-console.log('Bruh Why you Opened Console')
+console.log('Bruh Why you Opened Console');
+console.log('Here is A fun this you can do open your fridge and drink some water becuase i have coded for 6 hours straght with 1 hour brake to get unbanned')
