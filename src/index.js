@@ -1,3 +1,3 @@
-function calculator() {
-    window.location.href='calulator';
+function change(href) {
+    window.location.href=`apps/${href}`;
 }
