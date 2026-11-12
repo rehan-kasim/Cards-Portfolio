@@ -5,7 +5,9 @@ const cityInput = document.getElementById('city');
 const humidityInfo = document.getElementById('humidity');
 const api = '8c613d9a099482bf87481c0354e07439';
 const cityName = document.getElementById('city-name');
-const fetchbutton = document.getElementById('fetchbutton')
+const fetchbutton = document.getElementById('fetchbutton');
+const weathercard = document.getElementById('weather-card');
+const aqitext = document.getElementById('aqi-text');
 
 let uselessThings = [
     "There Are 7 Continents",
@@ -29,7 +31,32 @@ function change(href) {
 
 // weather logic
 
+function getaqiemoji(aqi) {
+    if (aqi === 1) return "Very Good 👍";
+    if (aqi === 2) return "Good 👌";
+    if (aqi === 3) return "Poor ⛔";
+    if (aqi === 4) return "Very Poor 👎";
+    if (aqi === 5) return "Hazardous ⚠️";
+    else return "Out Of Code fahh";
+}
+
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${api}&units=metric`;
+
+async function getlocation(city) {
+    const geoUrl = `https://openweathermap.org{encodeURIComponent(${city})}&limit=1&appid=${api}`;
+    const response = await fetch(geoUrl);
+
+    const data = await response.json();
+
+    if (data.length === 0) {
+        throw new error ("City Not Found");
+    }
+
+    return {
+    lat : data[0].lat,
+    lan : data[0].lon
+    };
+}
 
 function getEmoji(id) {
     if (id >= 200 && id < 300) return "⛈️";
@@ -57,7 +84,7 @@ async function getinfo(city) {
     return await response.json();
 }
 
-function shwoweather(data) {
+function shwoweather(data, aqi) {
     if (!data || !data.main || !data.weather || data.weather.length === 0) {
         alert('Invalid weather data received.');
         return;
@@ -68,6 +95,7 @@ function shwoweather(data) {
         temperatureInfo.textContent = `${data.main.temp} °C`;
         humidityInfo.textContent = `Humidity: ${data.main.humidity}%`;
         emojiInfo.textContent = getEmoji(data.weather[0].id);
+        aqitext.textContent = `Aqi : `+ getaqiemoji(aqi);
     }}
 
 function showError(message) {
@@ -77,8 +105,18 @@ function showError(message) {
     emojiInfo.textContent = "😕";
 }
 
+async function getaqi(lat ,lon) {
+    const aqiurl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api}`;
+    const response = await fetch(aqiurl);
+
+    const aqidata = await response.json();
+
+    return aqidata.list[0].main.aqi;
+}
+
 async function search() {
     const city = cityInput.value.trim();
+    weathercard.classList.remove('hidden');
 
     if (!city) {
         showError('Please enter a city name.');
@@ -88,7 +126,9 @@ async function search() {
     try {
         cityName.textContent = 'Loading...';
         const data = await getinfo(city);
-        shwoweather(data);
+        const {lat, lon} = data.coord;
+        const aqi = await getaqi(lat, lon);
+        shwoweather(data, aqi);
     } catch (error) {
         showError(error.message);
     }

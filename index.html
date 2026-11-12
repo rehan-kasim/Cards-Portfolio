@@ -61,36 +61,23 @@
             <div class="pb-32">
                 <p class="text-4xl font-bold font-display">Get Weather Of Any City</p>
                 <p class="text-4xl font-display text-neutral-500 dark:text-neutral-400">I don't Know Why I added This (Crying Emoji)</p>
-                <div class="">
-                    <input>
-                    <button>
+                <div class="mt-10 flex- flex-wrap gap-4">
+                    <input type="text" id="city" placeholder="Try A City's Name" class="flex-1 min-w-48 rounded-xl border-xl border-2 px-5 py-4 text-xl bg-white border-orange-200 placeholder:text-neutral-400 focus:outline-none focus:border-orange-700 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-100 dark:focus:border-orange-400">
+                    <button id="fetchbutton" class="ml-5 font-display text-xl rounded-xl border-2 px-8 py-4 border-dashed border-orange-500 hover:bg-orange-500 active:bg-orange-400 active:border-orange-400 transition-colors text-orange-500 hover:text-black active:text-black">
                         Get Weather
                     </button>
                 </div>
-                <div>
-                    <p id="emoji"></p>
-                    <p id="temperature"></p>
-                    <p id="city-name"></p>
-                    <p id="description"></p>
-                    <div>
-                        <div>
-                            <p>Feels Like : </p>
-                            <p id="feeling"></p>
-                        </div>
-                        <div>
-                            <p>Humidity : </p>
-                            <p id="humidity"></p>
-                        </div>
-                        <div>
-                            <p>Wind : </p>
-                            <p id="wind"></p>
-                        </div>
-                    </div>
+                <div id="weather-card" class="hidden mt-8 max-w-md rounded-3xl p-8 text-center bg-orange-100 dark:bg-orange-950">
+                    <p id="emoji" class="text-8xl"></p>
+                    <p id="temperature" class="mt-4 font-display font-bold text-7xl text-orange-700 dark:text-orange-400"></p>
+                    <p id="city-name" class="mt-2 font-display font-bold text-3xl"></p>
+                    <p id="humidity" class="mt-2 font-display font-bold text-4xl"></p>
+                    <p id="aqi-text" class="mt-2 font-display font-bold text-3xl"></p>
                 </div>
             </div>
             <!--Quations Area-->
             <div>
-                <p class="font-display font-bold text-6xl mb-3 mt-20">Questions</p>
+                <p class="font-display font-bold text-6xl mb-3">Questions</p>
                 <p class="mb-12 text-neutral-600 dark:text-neutral-400">Click To see the Answer</p>
                 <ul class="border-t border-orange-200 dark:border-neutral-800">
                     <li class="border-b border-orange dark:border-neutral-800">
