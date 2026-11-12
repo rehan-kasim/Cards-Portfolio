@@ -847,6 +847,9 @@
     .hover\:text-neutral-900:hover {
       color: var(--color-neutral-900);
     }
+    .hover\:text-neutral-950:hover {
+      color: var(--color-neutral-950);
+    }
     .hover\:text-orange-200:hover {
       color: var(--color-orange-200);
     }
@@ -990,11 +993,17 @@
     .dark\:text-neutral-400 {
       color: var(--color-neutral-400);
     }
+    .dark\:text-neutral-900 {
+      color: var(--color-neutral-900);
+    }
     .dark\:text-neutral-950 {
       color: var(--color-neutral-950);
     }
     .dark\:text-orange-50 {
       color: var(--color-orange-50);
+    }
+    .dark\:text-orange-100 {
+      color: var(--color-orange-100);
     }
     .dark\:text-orange-400 {
       color: var(--color-orange-400);
@@ -1005,6 +1014,9 @@
       }
       .dark\:hover\:text-neutral-950:hover {
         color: var(--color-neutral-950);
+      }
+      .dark\:hover\:text-orange-200:hover {
+        color: var(--color-orange-200);
       }
     }
     .dark\:focus\:border:focus {
