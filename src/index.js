@@ -97,5 +97,26 @@ async function search() {
 
 fetchbutton.addEventListener('click', search);
 
+// questions logic
+
+function togglequestions(id) {
+    let box = document.getElementById(id);
+    let icon = document.getElementById("icon-" + id);
+
+    if (box.classList.contains("grid-rows-[0fr]")) {
+        box.classList.remove("grid-rows-[0fr]");
+        box.classList.add("grid-rows-[1fr]");
+        icon.classList.add("rotate-45");
+    } else {
+        box.classList.remove("grid-rows-[1fr]");
+        box.classList.add("grid-rows-[0fr]");
+        icon.classList.remove("rotate-45");
+    }
+}
+   
+function toggleanswer() {
+    togglequestions("answer")
+}
+
 console.log('Bruh Why you Opened Console');
 console.log('Here is A fun this you can do open your fridge and drink some water becuase i have coded for 6 hours straght with 1 hour brake to get unbanned')

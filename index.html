@@ -78,14 +78,15 @@
                 <p class="mb-12 text-neutral-600 dark:text-neutral-400">Click To see the Answer</p>
                 <ul class="border-t border-orange-200 dark:border-neutral-800">
                     <li class="border-b border-orange dark:border-neutral-800">
-                        <button data-toggle="q1" aria-expanded="false" aria-controls="q1" class="w-full flex items-baseline gap-4 py-7 text-left focus-visible:outline-orange-700 dark:focus-visible:outline-orange-400">
-                            <span class="font-display font-bold text-2xl flex-1">Are You A Robot?</span>
-                            <span data-icon class="font-display text-4xl leading-none text-orange-700 dark:text-orange-400 transition-transform duration-300 motion-reduce:transition-none">+</span>
+                        <button onclick="togglequestions('q1')" class="w-full flex items-baseline gap-4 py-7 text-left">
+                            <span class="font-display font-bold text-2xl md:text-4xl flex-1">Are you a robot?</span>
+                            <span id="icon-q1" class="font-display text-4xl leading-none text-orange-700 dark:text-orange-400 transition-transform duration-300">+</span>
                         </button>
-                        <div id="q1" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 motion-reduce:transition-none">
+
+                        <div id="q1" class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
                             <div class="overflow-hidden">
                                 <p class="pb-8 max-w-2xl text-neutral-600 dark:text-neutral-400">
-                                    Of Course Not, I Am Not A robot ,Or I am??
+                                No. A robot would reply to messages faster.
                                 </p>
                             </div>
                         </div>
