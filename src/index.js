@@ -17,7 +17,8 @@ let uselessThings = [
     "Ahmm nothing",
     "What Should I tell You??",
     "Hackclub Is the Best",
-    "I Sleep 14 Hours A day (Not Joking)"
+    "I Sleep 14 Hours A day (Not Joking)",
+    "It took me 10 hours to make this website"
 ];
 
 function douseless() {
