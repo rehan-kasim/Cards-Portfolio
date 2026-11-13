@@ -77,6 +77,9 @@
                     <button id="fetchbutton" class="ml-5 font-display text-xl rounded-xl border-2 px-8 py-4 border-dashed border-orange-500 hover:bg-orange-500 active:bg-orange-400 active:border-orange-400 transition-colors text-orange-500 hover:text-black active:text-black">
                         Get Weather
                     </button>
+                    <button id="location-btn" class="ml-5 font-display text-xl rounded-xl border-2 px-8 py-4 border-orange-400 bg-orange-400">
+                        Use My Location
+                    </button>
                 </div>
                 <div id="weather-card" class="hidden mt-8 max-w-md rounded-3xl p-8 text-center bg-orange-100 dark:bg-orange-950">
                     <p id="emoji" class="text-8xl"></p>
@@ -92,7 +95,7 @@
                 <p class="mb-12 text-neutral-600 dark:text-neutral-400">Click To see the Answer</p>
                 <ul class="border-t border-orange-200 dark:border-neutral-800">
                     <li class="border-b border-orange dark:border-neutral-800">
-                        <button onclick="togglequestions('q1')" class="w-full cursor-pointer flex items-baseline gap-4 py-7 text-left">
+                        <button onclick="togglequestions('q1')" class="w-full cursor-pointer flex items-baseline gap-4 py-7    text-left">
                             <span class="font-display font-bold text-2xl flex-1">Are you a robot?</span>
                             <span id="icon-q1" class="font-display text-4xl leading-none text-orange-700 dark:text-orange-400 transition-transform duration-300">+</span>
                         </button>

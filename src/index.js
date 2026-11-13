@@ -8,6 +8,7 @@ const cityName = document.getElementById('city-name');
 const fetchbutton = document.getElementById('fetchbutton');
 const weathercard = document.getElementById('weather-card');
 const aqitext = document.getElementById('aqi-text');
+const locationbtn = document.getElementById('location-btn');
 
 let uselessThings = [
     "There Are 7 Continents",
@@ -116,26 +117,33 @@ async function getaqi(lat ,lon) {
 }
 
 async function search() {
-    const city = cityInput.value.trim();
-    weathercard.classList.remove('hidden');
+        const city = cityInput.value.trim();
+        weathercard.classList.remove('hidden');
 
-    if (!city) {
+        if (!city) {
         showError('Please enter a city name.');
         return;
-    }
+        }
 
-    try {
-        cityName.textContent = 'Loading...';
-        const data = await getinfo(city);
-        const {lat, lon} = data.coord;
-        const aqi = await getaqi(lat, lon);
-        shwoweather(data, aqi);
-    } catch (error) {
+        try {
+            cityName.textContent = 'Loading...';
+            const data = await getinfo(city);
+            const {lat, lon} = data.coord;
+            const aqi = await getaqi(lat, lon);
+            shwoweather(data, aqi);
+            console.log('nothing')
+        } catch (error) {
         showError(error.message);
-    }
+}}
 
+async function getlocation() {
+    myloc = await fetch('https://ipwho.is');
+    locdata = await myloc.json();
+    cityInput.value = locdata.city
+    search()
 }
 
+locationbtn.addEventListener('click', getlocation);
 fetchbutton.addEventListener('click', search);
 
 // questions logic
