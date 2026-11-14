@@ -4,9 +4,11 @@ const taskcounter = document.getElementById('task-counter');
 const todolist = document.getElementById('todo-list');
 const allButton = document.getElementById('all');
 const pendingbutton = document.getElementById('pending');
-const completedbutton = document.getElementById('completedbutton');
+const completedbutton = document.getElementById('completed');
+const completedcounter = document.getElementById('completedcounter');
 
 let taskcount = 0;
+let completedcount = 0;
 
 function updateCounter() {
     const pendingtasks = document.getElementsByClassName('pending');
@@ -65,9 +67,11 @@ submit.onclick = function (event) {
         taskText.classList.toggle('line-through');
         taskDiv.classList.toggle('completed');
         taskDiv.classList.toggle('pending');
+        completedcount += 1;
+        completedcounter.textContent = `${completedcount} Tasks Completed`;
         updateCounter();
-
     };
+  
     deletebutton.onclick = function () {
         taskDiv.remove();
         updateCounter();
