@@ -2,15 +2,18 @@ const submit = document.getElementById('submit');
 const taskname = document.getElementById('task-name');
 const taskcounter = document.getElementById('task-counter');
 const todolist = document.getElementById('todo-list');
+const allButton = document.getElementById('all')
 
 let taskcount = 0;
+
+
 
 submit.onclick = function () {
     taskcount += 1;
     taskcounter.textContent = `${taskcount} Tasks left`;
 
     const taskDiv = document.createElement('div');
-    taskDiv.classList = `flex items-center justify-between gap-4 bg-white dark:bg-neutral-900 border border-orange-200 dark:border-neutral-800 rounded-2xl p-5`;
+    taskDiv.classList = `pending flex items-center justify-between gap-4 bg-white dark:bg-neutral-900 border border-orange-200 dark:border-neutral-800 rounded-2xl p-5`;
 
     const taskText = document.createElement('p');
     taskText.textContent = taskname.value;
@@ -19,6 +22,7 @@ submit.onclick = function () {
     const completebuton = document.createElement('button');
     completebuton.textContent = "✓";
     completebuton.classList = 'text-3xl text-white bg-green-800 dark:bg-green-950 hover:bg-green-700 cursor-pointer py-2 px-4 rounded-2xl dark:hover:bg-green-800'
+    taskDiv.classList.add('completed')
 
     const deletebutton = document.createElement('button');
     deletebutton.textContent = "×";
